@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class Arpan20220816_160621 {
 	@Test
-	public void reverseString() {
+	public void SubString() {
 		String s = "Welcome";
 		int count = 0;
 		for (int i = 0; i < s.length(); i++) {
