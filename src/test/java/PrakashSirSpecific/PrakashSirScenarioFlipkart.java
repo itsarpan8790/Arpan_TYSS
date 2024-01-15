@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PrakashSirScenarioFlipkart {
 	public static void main(String[] args) throws InterruptedException {
 
-		//ArrayList<String> al = new ArrayList<String>();
+		// ArrayList<String> al = new ArrayList<String>();
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -39,20 +39,19 @@ public class PrakashSirScenarioFlipkart {
 				// al.add(ele.getText());
 				count++;
 			}
-
-			WebElement next = driver.findElement(By.xpath("//span[text()='Next']"));
-			act.scrollToElement(next).perform();
-			// wait.until(ExpectedConditions.elementToBeClickable(next));
-			Thread.sleep(1500);
 			try {
+				WebElement next = driver.findElement(By.xpath("//span[text()='Next']"));
+				act.scrollToElement(next).perform();
+				// wait.until(ExpectedConditions.elementToBeClickable(next));
+				Thread.sleep(1500);
+
 				next.click();
 			} catch (Exception e) {
 				break;
 			}
-			
-			
 
 		}
+		System.out.println(count);
 
 	}
 }
