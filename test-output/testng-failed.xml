@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Screening.GoIbiboAutomate">
+      <class name="TyssMail.Arpan20220816_160621">
         <methods>
-          <include name="main1"/>
+          <include name="reverseString"/>
         </methods>
-      </class> <!-- Screening.GoIbiboAutomate -->
+      </class> <!-- TyssMail.Arpan20220816_160621 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -132,6 +132,7 @@ public class GoIbiboAutomate {
 				break;
 
 			} else {
+				//a.sendKeys(Keys.PAGE_DOWN).perform();
 				a.sendKeys(Keys.PAGE_DOWN).perform();
 			}
 
