@@ -29,6 +29,7 @@ public class FrequencyOfElementsInArray {
 			}
 
 		}
+		System.out.println("**********");
 		System.out.println(value + " occurs maximum and " + maxOccur + " times");
 
 	}

@@ -1,40 +1,27 @@
 package LearnArrayPrograms;
 
-import java.util.ArrayList;
-import java.util.TreeSet;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 
 public class MissingNumbersBetweenMinMax {
 	public static void main(String[] args) {
-		int[] ar = { 10, 15, 5, 20, 2, 3 };
+		// int[] ar = { 10, 15, 5, 20, 2, 3 };
+		int[] ar = { 1, 5 };
+		Arrays.sort(ar);
 
-		TreeSet<Integer> tset = new TreeSet<Integer>();
-		for (int i = 0; i < ar.length; i++) {
-			tset.add(ar[i]);
-		}
-		for (Integer set : tset) {
-			System.out.print(set + " ");
-		}
-		System.out.println();
-		int min = tset.first();
-		int max = tset.last();
-		System.out.println("Minimum--> " + min);
-		System.out.println("Maximum--> " + max);
+		int fnum = ar[0];// 1
+		int snum = ar[ar.length - 1];// 5
+		LinkedHashSet<Integer> hs = new LinkedHashSet<Integer>();
 
-		ArrayList<Integer> misAL = new ArrayList<Integer>();
-
-		for (int i = min; i <= max; i++) {// 2-20
-			misAL.add(i);
+		for (int i = fnum; i <= snum; i++) {
+			hs.add(fnum++);
 
 		}
-
-		for (Integer al : misAL) {
-			for (int i = 0; i <= ar[i]; i++) {
-				if(al!=ar[i])
-					System.out.println(al);
-
-			}
-
+		for (int h : hs) {
+			System.out.println("Hashset>>" + h);
 		}
+		
+		
 
 	}
 }

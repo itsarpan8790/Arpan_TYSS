@@ -2,7 +2,7 @@ package LearnArrayPrograms;
 
 public class FirstMaxNoWithoutBubbleSort {
 	public static void main(String[] args) {
-		int[] ar = { 10, 15, 5, 20, 2, 3 };
+		int[] ar = { 10, 20,15, 5, 20, 2, 3 };
 
 		int max = ar[0];
 

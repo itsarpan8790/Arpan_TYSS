@@ -1,4 +1,4 @@
-package LearnStringProg;
+package PrakashSirSpecific;
 
 import org.testng.annotations.Test;
 
