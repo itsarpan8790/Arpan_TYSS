@@ -2,21 +2,32 @@ package practiseAllSDET52;
 
 public class FmaxSmaxSingleForloop {
 	public static void main(String[] args) {
-		int[] ar = { 2, 1, 3, 4, 5, 6, 7, 8 };
+		int[] ar = { 8, 2, 1, 3, 4, 5, 6, 7,8,8 };
+		int secondmax=SecondMax(ar);
+		System.out.println(secondmax);
 
-		int fmax = ar[0];// 2
-		int smax = ar[1];// 1
-
-		for (int i = 0; i < ar.length; i++) {
-			if (ar[i] > fmax) {
-				smax = fmax;
-				fmax = ar[i];
-			} else {
-				smax = ar[i];
-				fmax = smax;
+	}
+	public static int SecondMax(int[] a)
+	{
+		
+	//	for(int i=0,j=i+1;i<=a.length;i++,j++)
+		//{
+			//if(a[i]>a[j])
+		int max=0;
+		int secondmax=0;
+		for(int i=0;i<a.length;i++)
+		{
+			if(a[i]>max)
+			{
+				secondmax=max;
+				max=a[i];
 			}
-
+			else if(a[i]>secondmax &&a[i]!=max)
+			{
+				secondmax=a[i];
+			}
 		}
-		System.out.println(fmax + " " + smax);
+		return secondmax;
+			
 	}
 }
