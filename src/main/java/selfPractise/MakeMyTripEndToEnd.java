@@ -17,19 +17,16 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class MakeMyTripEndToEnd {
-	WebDriver driver;
 
-	@Parameters("browser")
 	@Test
-	public void mmt(String Browser) throws InterruptedException {
+	public void mmt() throws InterruptedException {
 		String City1 = "Patna";
 		String City2 = "Bengaluru";
 		String Date = "25";
 		String Month = "February";
-		if (Browser.equals("chrome"))
-			driver = new ChromeDriver();
-		else
-			driver = new FirefoxDriver();
+
+		WebDriver driver = new ChromeDriver();
+
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("https://www.makemytrip.com/");
@@ -81,42 +78,45 @@ public class MakeMyTripEndToEnd {
 
 		// HashMap
 		LinkedHashMap<String, Integer> hmap = new LinkedHashMap<String, Integer>();
-
+		int count = 0;
 		for (;;) {
 			try {
 				WebElement scrollUp = driver.findElement(By.xpath("//font[text()='SCROLL TO TOP']"));
-				js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+				// js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+				a.scrollToElement(scrollUp);
 				// price
 				List<WebElement> allPrices = driver.findElements(By
 						.xpath("//div[@class='blackText fontSize18 blackFont white-space-no-wrap clusterViewPrice']"));
+				System.out.println("Price Size is-->" + allPrices.size());
+
 				// name
-				List<WebElement> flightName = driver.findElements(By.xpath(
+				List<WebElement> flightNames = driver.findElements(By.xpath(
 						"//p[@class='appendBottom2 flightTimeInfo']/ancestor::div[@class='makeFlex spaceBetween']/descendant::p[@class='boldFont blackText airlineName']"));
-				System.out.println("size is-->" + allPrices.size());
-				System.out.println("size is-->" + flightName.size());
+				System.out.println("Name size is-->" + flightNames.size());
 
 				for (int j = 0; j < allPrices.size(); j++) {
-					String temp = "";
-					String strPrice = allPrices.get(j).getText();
-					for (int i = 0; i < strPrice.length(); i++) {
-						if (strPrice.charAt(i) >= '0' && strPrice.charAt(i) <= '9') {
-							temp = temp + strPrice.charAt(i);
+					String txtprice = "";
+					String Price = allPrices.get(j).getText();
+
+					for (int i = 0; i < Price.length(); i++) {
+						if (Price.charAt(i) >= '0' && Price.charAt(i) <= '9') {
+							txtprice = txtprice + Price.charAt(i);
 						}
 					}
 
-					String strName = flightName.get(j).getText();
-					int intPrice = Integer.parseInt(temp);
-					hmap.put(strName, intPrice);
-
+					int intPrice = Integer.parseInt(txtprice);
+					String strName = flightNames.get(j).getText();
+					System.out.println(strName + "-->" + intPrice);
 				}
 				break;
 			} catch (Exception e) {
 
 				a.sendKeys(Keys.PAGE_DOWN).perform();
+				System.out.println(count++);
 			}
 
 		}
-		System.out.println("hmap size--" + hmap.size());
+		//driver.quit();
 
 	}
 

@@ -1,4 +1,4 @@
-package TyssMail;
+package o9Screening;
 
 import org.testng.annotations.Test;
 
