@@ -22,7 +22,7 @@ public class MakeMyTripEndToEnd {
 	public void mmt() throws InterruptedException {
 		String City1 = "Patna";
 		String City2 = "Bengaluru";
-		String Date = "25";
+		String Date = "16";
 		String Month = "February";
 
 		WebDriver driver = new ChromeDriver();
@@ -30,7 +30,6 @@ public class MakeMyTripEndToEnd {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("https://www.makemytrip.com/");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		// Fromcity
 		driver.findElement(By.id("fromCity")).click();
@@ -67,8 +66,7 @@ public class MakeMyTripEndToEnd {
 				break;
 			} catch (Exception e) {
 				continue;
-				// driver.findElement(By.xpath("//span[contains(@class,'bgProperties
-				// overlayCrossIcon icon20')]")).click();
+
 			}
 		}
 
@@ -82,7 +80,6 @@ public class MakeMyTripEndToEnd {
 		for (;;) {
 			try {
 				WebElement scrollUp = driver.findElement(By.xpath("//font[text()='SCROLL TO TOP']"));
-				// js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 				a.scrollToElement(scrollUp);
 				// price
 				List<WebElement> allPrices = driver.findElements(By
@@ -110,13 +107,13 @@ public class MakeMyTripEndToEnd {
 				}
 				break;
 			} catch (Exception e) {
-
-				a.sendKeys(Keys.PAGE_DOWN).perform();
-				System.out.println(count++);
+				js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+				count++;
+				System.out.println(count);
 			}
 
 		}
-		//driver.quit();
+		// driver.quit();
 
 	}
 
