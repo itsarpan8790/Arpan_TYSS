@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="selfPractise.MakeMyTripEndToEnd">
+      <class name="myrandomPractises.Sonull">
         <methods>
-          <include name="mmt"/>
+          <include name="main"/>
         </methods>
-      </class> <!-- selfPractise.MakeMyTripEndToEnd -->
+      </class> <!-- myrandomPractises.Sonull -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

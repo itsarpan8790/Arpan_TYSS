@@ -132,13 +132,15 @@ public class GoIbiboAutomate {
 				break;
 
 			} else {
-				//a.sendKeys(Keys.PAGE_DOWN).perform();
+				
 				a.sendKeys(Keys.PAGE_DOWN).perform();
 			}
 
 		}
 		Collections.sort(al);
 		System.out.println("Least Flight Price " + al.get(0));
+		
+		//svg xpath for '+'------>//p[text()='Adults']/../descendant::*[name()='svg']//*[name()='path' and @d='M7 1v12.5M1 7h12.5']
 	
 
 	}
