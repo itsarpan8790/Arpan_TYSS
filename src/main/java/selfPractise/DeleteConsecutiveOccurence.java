@@ -13,8 +13,9 @@ public class DeleteConsecutiveOccurence {
 			} else {
 				if (count > 1) {
 					for (int j = 0; j < count; j++) {
-						sb.delete(j, count);
+						temp=temp+sb.charAt(j);
 					}
+					s.sub
 					count = 1;
 				}
 			}
