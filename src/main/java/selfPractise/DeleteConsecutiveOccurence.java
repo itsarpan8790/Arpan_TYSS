@@ -5,7 +5,7 @@ public class DeleteConsecutiveOccurence {
 		String s = "caabbc"; // op--""
 
 		StringBuilder sb = new StringBuilder(s);
-
+		String temp = "";
 		int count = 1;
 		for (int i = 0; i < sb.length(); i++) {
 			if (sb.charAt(i) == sb.charAt(i + 1)) {
@@ -13,9 +13,9 @@ public class DeleteConsecutiveOccurence {
 			} else {
 				if (count > 1) {
 					for (int j = 0; j < count; j++) {
-						temp=temp+sb.charAt(j);
+						temp = temp + sb.charAt(j);
 					}
-					s.sub
+
 					count = 1;
 				}
 			}
