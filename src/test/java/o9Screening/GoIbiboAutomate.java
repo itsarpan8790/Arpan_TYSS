@@ -111,20 +111,22 @@ public class GoIbiboAutomate {
 		// morelinks
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// PriceFetching
-		WebElement fligthCount = driver.findElement(By.xpath("//span[@class='greyCnt']"));
+		WebElement fligthCount = driver.findElement(By.xpath("//span[@class='greyCnt']"));//showing 27 flights
 		String strFligthCount = fligthCount.getText().replaceAll("[^0-9]", "");
 		int numFligthCount = Integer.parseInt(strFligthCount);
 		System.out.println(numFligthCount);
 		ArrayList<Integer> al = new ArrayList<Integer>();
+		
 		for (;;) {
 			List<WebElement> allPrices = driver.findElements(
 					By.xpath("//div[@class='srp-card-uistyles__Price-sc-3flq99-17 kxwFaC alignItemsCenter dF f600' ]"));
 			if (numFligthCount == allPrices.size()) {
+				
 				for (WebElement price : allPrices) {
-					String Price = price.getText();
+					String Price = price.getText();//6,000
 					// System.out.println(Price);
-					String strPrice = Price.replaceAll(",", "");
-					int intPrice = Integer.parseInt(strPrice);
+					String strPrice = Price.replaceAll(",", "");//6000
+					int intPrice = Integer.parseInt(strPrice);//6000
 					System.out.println(intPrice);
 					al.add(intPrice);
 

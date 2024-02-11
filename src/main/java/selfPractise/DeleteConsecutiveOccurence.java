@@ -1,26 +1,23 @@
 package selfPractise;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 public class DeleteConsecutiveOccurence {
 	public static void main(String[] args) {
-		String s = "caabbc"; // op--""
+		String name = "Tilak";
 
-		StringBuilder sb = new StringBuilder(s);
-		String temp = "";
-		int count = 1;
-		for (int i = 0; i < sb.length(); i++) {
-			if (sb.charAt(i) == sb.charAt(i + 1)) {
-				count++;
-			} else {
-				if (count > 1) {
-					for (int j = 0; j < count; j++) {
-						temp = temp + sb.charAt(j);
-					}
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.get("file:///C:/Users/arpan/Desktop/dynamic.html");
 
-					count = 1;
-				}
-			}
-		}
-		System.out.println(sb);
+		WebElement n1 = driver.findElement(By.xpath("//a[contains(.,'" + name + "')]/following-sibling::input"));
+		n1.sendKeys("admin");
 
 	}
 

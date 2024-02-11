@@ -3,6 +3,7 @@ package selfPractise;
 import java.time.Duration;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -30,6 +31,14 @@ public class MakeMyTripEndToEnd {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("https://www.makemytrip.com/");
+
+		// Handle Frame
+		WebElement iframe = driver
+				.findElement(By.xpath("//iframe[@id='webklipper-publisher-widget-container-notification-frame']"));
+		driver.switchTo().frame(iframe);
+		WebElement X = driver.findElement(By.id("webklipper-publisher-widget-container-notification-close-div"));
+		X.click();
+		driver.switchTo().defaultContent();
 
 		// Fromcity
 		driver.findElement(By.id("fromCity")).click();
@@ -92,28 +101,29 @@ public class MakeMyTripEndToEnd {
 				System.out.println("Name size is-->" + flightNames.size());
 
 				for (int j = 0; j < allPrices.size(); j++) {
-					String txtprice = "";
-					String Price = allPrices.get(j).getText();
+					String txtprice = "";// 1000
+					String Price = allPrices.get(j).getText();// 1,000
 
-					for (int i = 0; i < Price.length(); i++) {
-						if (Price.charAt(i) >= '0' && Price.charAt(i) <= '9') {
-							txtprice = txtprice + Price.charAt(i);
+					for (int i = 0; i < Price.length(); i++) {// 5
+						if (Price.charAt(i) >= '0' && Price.charAt(i) <= '9') {// 6000
+							txtprice = txtprice + Price.charAt(i);//
 						}
 					}
 
 					int intPrice = Integer.parseInt(txtprice);
 					String strName = flightNames.get(j).getText();
 					System.out.println(strName + "-->" + intPrice);
+
 				}
 				break;
 			} catch (Exception e) {
 				js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 				count++;
-				System.out.println(count);
+				System.out.println("catch executed "+count+" times");
 			}
 
 		}
-		// driver.quit();
+		 driver.quit();
 
 	}
 
